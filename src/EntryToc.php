@@ -26,7 +26,7 @@ use yii\base\Event;
 class EntryToc extends Plugin
 {
     public string $schemaVersion = '1.0.0';
-    public bool $hasCpSettings = true;
+    //public bool $hasCpSettings = true;
 
     public static function config(): array
     {
