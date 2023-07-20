@@ -1,0 +1,51 @@
+{# @var plugin \imarc\craftentrytoc\EntryToc #}
+{# @var settings \imarc\craftentrytoc\models\Settings #}
+
+{% import '_includes/forms.twig' as forms %}
+
+<h2>Neo Table of Contents Settings</h2>
+
+<h4>Add Table of Contents<h4>
+
+{% set sections = craft.app.sections.getAllSections() %}
+{% set options = [] %}
+{% for section in sections %}
+    {#{% set options = options|merge([{option: section.name, key: section.handle}]) %}#}
+    {% set options = options|merge([section.name]) %}
+{% endfor %}
+
+
+{{ forms.selectField( {
+    label: 'Section',
+    class: 'element-parent-group'
+    id: 'elementGroup-section',
+    name: 'elementGroup[section]',
+    options: options,
+    required: true
+}) }}
+
+
+
+{#{% for section in sections %}
+
+    <h2>{{ section.name }}</h2>
+
+    {% set entryTypes = section.getEntryTypes() %}
+    <ul>
+        {% for entryType in entryTypes %}
+
+            <li>{{ entryType.name }}</li>
+
+        {% endfor %}
+
+    </ul>
+{% endfor %}
+
+ ... 
+{{ forms.textField({
+    label: 'Regex Pattern',
+    instructions: 'Enter a regular expression to test field input against',
+    id: 'pattern',
+    name: 'pattern',
+    value: field['pattern']})
+}}#}

@@ -1,0 +1,61 @@
+
+{% do view.registerAssetBundle("imarc\\craftentrytoc\\assetbundles\\SidebarAssets") %}
+
+{% import _self as macros %}
+
+{% for field in settings.fieldsToIndex %}
+    {% if entry[field.fieldHandle] %}
+        {% set indexField = entry[field.fieldHandle] %}
+        {% if indexField %}
+            {% set fieldObj = craft.app.fields.getFieldById(indexField.fieldId[0]) %}
+            <div class="toc accordion" id="{{ field.fieldHandle }}">
+                <div class="field accordion-item">
+                    <div class="data≈">
+                        <div class="accordion-item-header">
+                            <h4>{{ fieldObj.name }} Table of Contents</h4>
+                        </div>
+                        {% if fieldObj.className == "benf\\neo\\Field" %}
+                            <div class="accordion-item-body">
+                                <ul class="accorion-item-body-content">
+                                    {% for block in indexField.level(1).all() %}
+                                        {% set itemTitle = macros.getTitle(block, field) %}
+                                        <li>
+                                            <a href="#{{ block.id }}" class="tocitem" id="toc{{ block.id }}">{{ itemTitle }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% elseif fieldObj.className == "craft\\fields\\Matrix" %}
+                            <div class="accordion-item-body">
+                                <ul class="accorion-item-body-content">
+                                    {% for block in indexField.all() %}
+                                        {% set itemTitle = macros.getTitle(block, field) %}
+                                        <li>
+                                            <a href="#{{ block.id }}" class="tocitem" id="toc{{ block.id }}">{{ itemTitle }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+{% macro getTitle(block, field) %}{% apply spaceless %}
+    {% set title = block.type.name %}
+    {% set titleFound = false %}
+    {% for titleName in field.fieldTitles %}
+        {% if not titleFound %}
+            {% if block[titleName] %}
+                {% set title = title ~ ": " ~ block[titleName]|striptags %}
+                {% set titleFound = true %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {{ title }}
+{% endapply %}{% endmacro %}
+
+

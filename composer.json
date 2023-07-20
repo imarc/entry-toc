@@ -1,0 +1,45 @@
+{
+    "name": "imarc/craft-entry-toc",
+    "description": "Adds a Table of Contents to entries with long matrix or neo blocks",
+    "type": "craft-plugin",
+    "license": "mit",
+    "support": {
+        "email": "engineering@imarc.com"
+    },
+    "require": {
+        "php": ">=8.0.2",
+        "craftcms/cms": "^4.4.0"
+    },
+    "require-dev": {
+        "craftcms/ecs": "dev-main",
+        "craftcms/phpstan": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "imarc\\craftentrytoc\\": "src/"
+        }
+    },
+    "extra": {
+        "handle": "entry-toc",
+        "name": "Entry TOC",
+        "developer": "Linnea Hartsuyker",
+        "documentationUrl": "",
+        "class": "imarc\\craftentrytoc\\EntryToc"
+    },
+    "scripts": {
+        "check-cs": "ecs check --ansi",
+        "fix-cs": "ecs check --ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.2"
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
+
