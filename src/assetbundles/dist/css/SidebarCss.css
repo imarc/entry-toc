@@ -1,9 +1,10 @@
-li {
-    list-style-type: circle;
-    padding-bottom: 0.25rem;
-}
 .accordion-item-body > ul {
     padding: 0 1rem 1rem 1.5rem;
+}
+
+.accordion-item-body > ul > li {
+    list-style-type: circle;
+    padding-bottom: 0.25rem;
 }
 
 .accordion {
