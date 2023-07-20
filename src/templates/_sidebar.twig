@@ -47,14 +47,16 @@
 {% macro getTitle(block, field) %}{% apply spaceless %}
     {% set title = block.type.name %}
     {% set titleFound = false %}
-    {% for titleName in field.fieldTitles %}
-        {% if not titleFound %}
-            {% if block[titleName] %}
-                {% set title = title ~ ": " ~ block[titleName]|striptags %}
-                {% set titleFound = true %}
+    {% if "fieldTitles" in field %}
+        {% for titleName in field.fieldTitles %}
+            {% if not titleFound %}
+                {% if block[titleName] %}
+                    {% set title = title ~ ": " ~ block[titleName]|striptags %}
+                    {% set titleFound = true %}
+                {% endif %}
             {% endif %}
-        {% endif %}
-    {% endfor %}
+        {% endfor %}
+    {% endif %}
     {{ title }}
 {% endapply %}{% endmacro %}
 
