@@ -47,7 +47,7 @@
 {% macro getTitle(block, field) %}{% apply spaceless %}
     {% set title = block.type.name %}
     {% set titleFound = false %}
-    {% if "fieldTitles" in field %}
+    {% if field.fieldTitles is defined %}
         {% for titleName in field.fieldTitles %}
             {% if not titleFound %}
                 {% if block[titleName] %}
