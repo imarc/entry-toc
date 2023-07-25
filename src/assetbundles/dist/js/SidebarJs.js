@@ -73,11 +73,7 @@ if (tocs[0].closest(".slideout-container")) {
             if (!target) {
                 var target = document.querySelector(`[data-id="${id}"]`)
             }
-            let top = target.offsetTop;
-            window.scrollTo({
-                top: top,
-                behavior: 'smooth'
-            });
+            target.scrollIntoView({ behavior: 'smooth'});
         });
     });
 }
