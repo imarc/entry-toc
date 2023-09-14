@@ -6,7 +6,7 @@
 {% for field in settings.fieldsToIndex %}
     {% if entry[field.fieldHandle] %}
         {% set indexField = entry[field.fieldHandle] %}
-        {% if indexField %}
+        {% if indexField and indexField.fieldId|length %}
             {% set fieldObj = craft.app.fields.getFieldById(indexField.fieldId[0]) %}
             <div class="toc accordion" id="{{ field.fieldHandle }}">
                 <div class="field accordion-item">
