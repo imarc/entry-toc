@@ -4,7 +4,7 @@
 {% import _self as macros %}
 
 {% for field in settings.fieldsToIndex %}
-    {% if entry[field.fieldHandle] %}
+    {% if entry[field.fieldHandle] ?? entry[field.fieldHandle] %}
         {% set indexField = entry[field.fieldHandle] %}
         {% if indexField and indexField.fieldId|length %}
             {% if indexField.fieldId is iterable %}
