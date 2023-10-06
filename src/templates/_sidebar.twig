@@ -54,7 +54,7 @@
     {% if field.fieldTitles is defined %}
         {% for titleName in field.fieldTitles %}
             {% if not titleFound %}
-                {% if block[titleName] %}
+                {% if block[titleName] is defined and block[titleName] %}
                     {% set title = title ~ ": " ~ block[titleName]|striptags %}
                     {% set titleFound = true %}
                 {% endif %}
