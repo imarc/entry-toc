@@ -5,12 +5,12 @@ return [
 
     'fieldsToIndex' => [
         [
-            'fieldHandle' => 'neoContentDesigner', 
-            'fieldTitles' => ['sectionHeading']
+            'fieldHandle' => 'exampleNeoField', 
+            'fieldTitles' => ['exampleHeading']
         ],
         [
-            'fieldHandle' => 'designedContent',
-            'fieldTitles' => ['sectionHeader', 'subHeadline']
+            'fieldHandle' => 'exampleMatrixField',
+            'fieldTitles' => ['exampleHeader', 'exampleOtherHeader']
         ]
     ]
 ];

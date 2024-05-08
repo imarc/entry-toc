@@ -1,6 +1,6 @@
 {
     "name": "imarc/craft-entry-toc",
-    "description": "Adds a Table of Contents to entries with long matrix or neo blocks",
+    "description": "A CraftCMS plugin that adds a Table of Contents to entries with long matrix or neo blocks",
     "type": "craft-plugin",
     "license": "mit",
     "support": {
