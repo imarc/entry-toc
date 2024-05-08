@@ -32,6 +32,6 @@ composer require imarc/craft-entry-toc
 
 ## Configuration
 
-To select which matrix or neo blocks receive a copy the **entry-toc.php** file into your `config` directory. Replace the example fields like `exampleNeoField` with the name of the field you want to create a table of contents for. Replace the `exampleHeading` and similar with the name of the field within the matrix or neo block that contains the block's headline.
+To select which matrix or neo blocks show a table of contents, copy the **entry-toc.php** file into your `config` directory. Replace the example fields like `exampleNeoField` with the name of the field you want to create a table of contents for. Replace the `exampleHeading` and similar with the name of the field within the matrix or neo block that contains the block's headline.
 
 If that fields is empty, the table of contents will just show the block type. If it is populated, it will show **Block Type - Your Headline Here**.
